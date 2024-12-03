@@ -46,23 +46,60 @@
 // console.log(workingHours)
 
 //UC4
-const getMonthlyWage = () => {
-    const random = Math.floor(Math.random()*3)+1;
-    let monthlyWage
-    switch(random){
-        case 1:
-            monthlyWage = 8*20*20;
-            break;
-        case 2:
-            monthlyWage = 4*20*20;
-            break;
-        default:
-            monthlyWage = 0;
-            break;
+// const getMonthlyWage = () => {
+//     const random = Math.floor(Math.random()*3)+1;
+//     let monthlyWage
+//     switch(random){
+//         case 1:
+//             monthlyWage = 8*20*20;
+//             break;
+//         case 2:
+//             monthlyWage = 4*20*20;
+//             break;
+//         default:
+//             monthlyWage = 0;
+//             break;
+//     }
+//     return monthlyWage;
+// }
+
+// const monthlyWage = getMonthlyWage()
+// console.log("Monthly wage is: "+monthlyWage)
+
+//UC5
+const calculateWage = () => {
+    let currentWorkingHours = 0;
+    const totalWokringHours = 160;
+
+    let currentDays = 0;
+    const totalDays = 20;
+
+    let wages = 0
+
+    while(currentWorkingHours <= totalWokringHours && currentDays <= totalDays){
+        const random = Math.floor(Math.random()*3)+1;
+        let hours
+        switch(random){
+            case 1:
+                hours = 8;
+                wages += 8*20;
+                break;
+            case 2:
+                hours = 4;
+                wages += 4*20;
+                break;
+            default:
+                hours = 0;
+                wages += 0;
+                break;
+        }
+        currentWorkingHours += hours;
+        currentDays++;
     }
-    return monthlyWage;
+
+    return wages
 }
 
-const monthlyWage = getMonthlyWage()
-console.log("Monthly wage is: "+monthlyWage)
+const totalWage = calculateWage()
+console.log("Total wage is: "+totalWage)
 
