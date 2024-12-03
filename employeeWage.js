@@ -25,45 +25,23 @@
 // console.log("Employee wage is: "+wage);
 
 //UC3
-// const workHours = () => {
-//     const random = Math.floor(Math.random()*3)+1;
-//     let hours
-//     switch(random){
-//         case 1:
-//             hours = 8;
-//             break;
-//         case 2:
-//             hours = 4;
-//             break;
-//         default:
-//             hours = 0;
-//             break;
-//     }
-//     return `${hours} working hours`;
-// }
-
-// const workingHours = workHours()
-// console.log(workingHours)
-
-//UC4
-const getMonthlyWage = () => {
+const workHours = () => {
     const random = Math.floor(Math.random()*3)+1;
-    let monthlyWage
+    let hours
     switch(random){
         case 1:
-            monthlyWage = 8*20*20;
+            hours = 8;
             break;
         case 2:
-            monthlyWage = 4*20*20;
+            hours = 4;
             break;
         default:
-            monthlyWage = 0;
+            hours = 0;
             break;
     }
-    return monthlyWage;
+    return `${hours} working hours`;
 }
 
-const monthlyWage = getMonthlyWage()
-console.log("Monthly wage is: "+monthlyWage)
-
+const workingHours = workHours()
+console.log(workingHours)
 
