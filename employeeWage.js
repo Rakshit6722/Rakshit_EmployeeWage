@@ -3,23 +3,35 @@ const getAttendance = () => {
     const random = Math.floor(Math.random() * 2);
     return random === 1 ? 'Present' : 'Absent';
 }
-
 //UC2
-// const random = Math.floor(Math.random()*3)+1;
-// let wage
-// switch(random){
-//     case 1:
-//         wage = 8*20;
-//         break;
-//     case 2:
-//         wage = 4*20;
-//         break;
-//     default:
-//         wage = 0;
-//         break;
-// }
+const FULL_TIME = 8;
+const PART_TIME = 4;
+const WAGE_PER_HOUR = 20;
 
-// console.log("Employee wage is: "+wage);
+const isPresent = getAttendance()
+
+let workHours
+let dailyWage=0
+
+if(isPresent === 'Present') {
+    const hours = Math.floor(Math.random()*2)+1
+    switch(hours) {
+        case 1:
+            workHours = FULL_TIME;
+            dailyWage = FULL_TIME * WAGE_PER_HOUR;
+            break;
+        case 2:
+            workHours = PART_TIME;
+            dailyWage = PART_TIME * WAGE_PER_HOUR;
+            break;
+        default:
+            workHours = 0;
+            dailyWage = 0;
+            break;
+
+    }
+}
+console.log(dailyWage)
 
 //UC3
 // const workHours = () => {
@@ -64,39 +76,39 @@ const getAttendance = () => {
 // console.log("Monthly wage is: "+monthlyWage)
 
 //UC5
-const calculateWage = () => {
-    let currentWorkingHours = 0;
-    const totalWokringHours = 160;
+// const calculateWage = () => {
+//     let currentWorkingHours = 0;
+//     const totalWokringHours = 160;
 
-    let currentDays = 0;
-    const totalDays = 20;
+//     let currentDays = 0;
+//     const totalDays = 20;
 
-    let wages = 0
+//     let wages = 0
 
-    while(currentWorkingHours <= totalWokringHours && currentDays <= totalDays){
-        const random = Math.floor(Math.random()*3)+1;
-        let hours
-        switch(random){
-            case 1:
-                hours = 8;
-                wages += 8*20;
-                break;
-            case 2:
-                hours = 4;
-                wages += 4*20;
-                break;
-            default:
-                hours = 0;
-                wages += 0;
-                break;
-        }
-        currentWorkingHours += hours;
-        currentDays++;
-    }
+//     while(currentWorkingHours <= totalWokringHours && currentDays <= totalDays){
+//         const random = Math.floor(Math.random()*3)+1;
+//         let hours
+//         switch(random){
+//             case 1:
+//                 hours = 8;
+//                 wages += 8*20;
+//                 break;
+//             case 2:
+//                 hours = 4;
+//                 wages += 4*20;
+//                 break;
+//             default:
+//                 hours = 0;
+//                 wages += 0;
+//                 break;
+//         }
+//         currentWorkingHours += hours;
+//         currentDays++;
+//     }
 
-    return wages
-}
+//     return wages
+// }
 
-const totalWage = calculateWage()
-console.log("Total wage is: "+totalWage)
+// const totalWage = calculateWage()
+// console.log("Total wage is: "+totalWage)
 
