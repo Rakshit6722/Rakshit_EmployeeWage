@@ -1,11 +1,8 @@
 //UC1
-// const random = Math.floor(Math.random()*2);
-
-// if(random === 1){
-//     console.log("Employee is present");
-// }else{
-//     console.log("Employee is absent");
-// }
+const getAttendance = () => {
+    const random = Math.floor(Math.random() * 2);
+    return random === 1 ? 'Present' : 'Absent';
+}
 
 //UC2
 // const random = Math.floor(Math.random()*3)+1;
