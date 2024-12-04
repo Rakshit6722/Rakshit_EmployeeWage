@@ -34,31 +34,62 @@ const getAttendance = () => {
 // console.log(dailyWage)
 
 //UC3 - Refactoring UC2 to get workHours
-const getWorkHours = () => {
-    let workHours=0
+const getWorkHoursAndWage = () => {
+    const FULL_TIME = 8;
+    const PART_TIME = 4;
+    const WAGE_PER_HOUR = 20;
+
+    let workHours = 0
+    let dailyWage = 0
     const isPresent = getAttendance()
     if (isPresent === 'Present') {
         const hours = Math.floor(Math.random() * 2) + 1
         switch (hours) {
             case 1:
-                workHours = 8;
+                workHours = FULL_TIME;
+                dailyWage = FULL_TIME * WAGE_PER_HOUR;
                 break;
             case 2:
-                workHours = 4;
+                workHours = PART_TIME;
+                dailyWage = PART_TIME * WAGE_PER_HOUR;
                 break;
             default:
                 workHours = 0;
+                dailyWage = 0;
                 break;
         }
-    }else{
-        workHours=0
+    } else {
+        workHours = 0
     }
 
-    return workHours
+    return {workHours, dailyWage}
 }
 
-const workHours = getWorkHours()
-console.log(workHours)
+// const workHours = getWorkHoursAndWage()
+// console.log(workHours.workHours)
+
+//UC4
+const monthlyWages = () => {
+    const TOTAL_WORKING_DAYS = 20;
+    let currentDay = 0;
+    let totalMonthlyWage = 0;
+    for (currentDay = 0; currentDay < TOTAL_WORKING_DAYS; currentDay++) {
+        const currentAttendance = getAttendance()
+        if(currentAttendance === 'Present') {
+            const workHours = getWorkHoursAndWage()
+            totalMonthlyWage += workHours.dailyWage
+        }else{
+            totalMonthlyWage += 0
+        }
+    }
+    return totalMonthlyWage
+
+}
+
+const totalMonthlyWages = monthlyWages()
+console.log(totalMonthlyWages)
+        
+
 
 
 //UC4
